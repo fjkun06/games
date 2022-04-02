@@ -1,4 +1,5 @@
 public class Book
 {
-    public string Title{get; set;}
+    public string Maxcero{get; set;}
+    public string Titles{get; set;}
 }

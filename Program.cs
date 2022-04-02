@@ -8,7 +8,7 @@ namespace ProGitForProgrammers
  Console.WriteLine("I just added this in Visual Studio");
 Console.WriteLine("I just added this in the command line repo");
 Console.WriteLine("Setting up smo shit");
-Console.WriteLine("Conflict zzzzz");
+Console.WriteLine("Conflict ttttt");
  }
  }
 }

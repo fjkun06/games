@@ -9,19 +9,9 @@
     opacity: 1;
   }
 }
-@keyframes fadeout {
-  0%,
-  80% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-nav {
-  border: 1px solid red;
 
-  //1rem === 10px based on configuration
+//1rem === 10px based on configuration
+nav {
   @include mixins.size(100vw, 7rem);
   @include mixins.flex;
   background-color: var(--primary);
@@ -34,8 +24,18 @@ nav {
   /*************************Styling navbar links*************************/
   .nav_link {
     @include mixins.size(100%, 80%);
+    @media only screen and (width > 800px) {
+      font-size: 2rem;
+    }
     @media only screen and (width > 840px) {
       @include mixins.size(100%);
+    }
+
+    @media only screen and (width > 1200px) {
+      font-size: 2.2rem;
+    }
+    @media only screen and (width > 1500px) {
+      font-size: 2.4rem;
     }
     // border: 1px solid red;
     @include mixins.flex;
@@ -92,8 +92,12 @@ nav {
       @include mixins.flex;
       @include mixins.size(4.5rem);
       svg {
+        -webkit-user-select: none;
+        user-select: none;
+
         path {
           stroke: var(--link);
+          transition: all 0.25s ease-in-out;
         }
         cursor: pointer;
       }
@@ -119,5 +123,4 @@ nav {
 .off {
   // animation: fadeout 0.25s ease-in 0s 1 forwards;
   display: none;
-
 }

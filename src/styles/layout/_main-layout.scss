@@ -1,4 +1,11 @@
+@use "../util/mixins";
+@use "../util/variables";
 a {
   transition: all ease 0.15s;
   text-decoration: none;
+}
+
+#container {
+  @include mixins.flex(column);
+  min-height: calc(100vh - 14rem);
 }

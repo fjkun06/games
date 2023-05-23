@@ -17,18 +17,19 @@ interface NavbarProps {
   handleClick: () => void;
 }
 
-const Navbar:React.FC<NavbarProps> = ({isOpen,handleClick}) => {
+const Navbar: React.FC<NavbarProps> = ({ isOpen, handleClick }) => {
   const navLinks = ["top_games", "new", "slots", "jackpots", "live", "blackjack", "roulette", "table", "poker", "other"];
   //getting current route
   const pathname = usePathname();
   const href = useSelectedLayoutSegment() as string;
-  const isActive = pathname.includes(href);
 
-  //
+  //defining mdeia query
   const max840 = useMediaQuery("(width < 840px)");
   const opened = max840 && isOpen === true;
 
-  console.log(pathname, href, isActive);
+  //function for togglimg state in mobile
+  const toggler = () => max840 && handleClick()
+
 
   return (
     <nav className={opened ? "open" : "closed"}>
@@ -49,9 +50,9 @@ const Navbar:React.FC<NavbarProps> = ({isOpen,handleClick}) => {
       </div>
       <div className={isOpen ? "nav_link-container" : "off"}>
         {navLinks.map((link) => {
-          if (link === "new") return <NavLink href={`/${link}`} text="new games" key={nanoid()} />;
-          if (link === "top_games") return <NavLink href={`/${link}`} text="top games" key={nanoid()} />;
-          return <NavLink href={`/${link}`} text={link} key={nanoid()} />;
+          if (link === "new") return <NavLink toggle={handleClick} href={`/${link}`} text="new games" key={nanoid()} />;
+          if (link === "top_games") return <NavLink toggle={handleClick} href={`/${link}`} text="top games" key={nanoid()} />;
+          return <NavLink toggle={toggler} href={`/${link}`} text={link} key={nanoid()} />;
         })}
       </div>
     </nav>

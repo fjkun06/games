@@ -2,9 +2,13 @@
 
 import { nanoid } from "nanoid";
 import { NavLink } from "./NavLink";
-import { usePathname, useSelectedLayoutSegment } from "next/navigation";
+import { useSelectedLayoutSegment } from "next/navigation";
 import React from "react";
 import useMediaQuery from "@/hooks/useMediaQuery";
+import axios from "axios";
+import useSWR from "swr";
+
+const fetcher = (url: string) => axios.get(url).then((res) => res.data);
 
 //navbar interface
 interface NavbarProps {
@@ -17,10 +21,19 @@ interface NavbarProps {
   handleClick: () => void;
 }
 
+interface Category {
+  categories: string[];
+}
+
 const Navbar: React.FC<NavbarProps> = ({ isOpen, handleClick }) => {
-  const navLinks = ["top_games", "new", "slots", "jackpots", "live", "blackjack", "roulette", "table", "poker", "other"];
+  const allCategory = new Set();
+  const { data, error } = useSWR("http://stage.whgstage.com/front-end-test/games.php", fetcher);
+  data !== undefined &&
+    data.map(({ categories }: Category) => {
+      categories.map((el) => allCategory.add(el === "fun" || el === "ball" || el === "virtual" ? "other" : el)); //Group “ball”, “virtual” and “fun” in an “Other” category.
+    });
+
   //getting current route
-  const pathname = usePathname();
   const href = useSelectedLayoutSegment() as string;
 
   //defining mdeia query
@@ -28,8 +41,7 @@ const Navbar: React.FC<NavbarProps> = ({ isOpen, handleClick }) => {
   const opened = max840 && isOpen === true;
 
   //function for togglimg state in mobile
-  const toggler = () => max840 && handleClick()
-
+  const toggler = () => handleClick();
 
   return (
     <nav className={opened ? "open" : "closed"}>
@@ -48,11 +60,13 @@ const Navbar: React.FC<NavbarProps> = ({ isOpen, handleClick }) => {
         </span>
       </div>
       <div className={isOpen ? "nav_link-container" : "off"}>
-        {navLinks.map((link) => {
-          if (link === "new") return <NavLink toggle={handleClick} href={`/${link}`} text="new games" key={nanoid()} />;
-          if (link === "top_games") return <NavLink toggle={handleClick} href={`/${link}`} text="top games" key={nanoid()} />;
-          return <NavLink toggle={toggler} href={`/${link}`} text={link} key={nanoid()} />;
-        })}
+        {allCategory.size > 1 &&
+          [...allCategory].map((link) => {
+            const castedLink = link as string;
+            if (castedLink === "new") return <NavLink toggle={handleClick} href={`/${castedLink}`} text="new games" key={nanoid()} />;
+            if (castedLink === "top") return <NavLink toggle={handleClick} href={`/top_games`} text="top games" key={nanoid()} />;
+            return <NavLink toggle={toggler} href={`/${castedLink}`} text={castedLink} key={nanoid()} />;
+          })}
       </div>
     </nav>
   );

@@ -1,5 +1,6 @@
 import Navbar from "@/stories/Navbar"
 import '../styles/main.scss'
+import '@fontsource/roboto';
 export const metadata = {
   title: 'Games',
   description: 'Game application',

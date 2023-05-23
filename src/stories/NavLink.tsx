@@ -14,11 +14,12 @@ interface NavlinkProps {
 }
 
 export const NavLink: React.FC<NavlinkProps> = ({ href, text }) => {
+  //getting current route
   const pathname = usePathname();
   const isActive = pathname.startsWith(href);
   return (
     <Link className={ isActive ? "nav_link nav_link-active" : "nav_link" } href={href}>
-      {`${text} ${isActive ? "active" : ""}`}
+      {text}
     </Link>
   );
 };

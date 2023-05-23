@@ -5,6 +5,33 @@ nav {
   //1rem === 10px based on configuration
   @include mixins.size(100vw, 7rem);
   @include mixins.flex;
+  background-color: var(--primary);
 
-/*************************Styling navbar links*************************/
+  /*************************Styling navbar links*************************/
+  .nav_link {
+    @include mixins.size(100%);
+    border: 1px solid red;
+    @include mixins.flex;
+    text-transform: capitalize;
+  }
+
+  /*************************Styling mobile navbar*************************/
+  .nav_mobile {
+    @include mixins.size(100%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 2rem;
+    span {
+      @include mixins.flex;
+      @include mixins.size(4.5rem);
+    }
+
+    //heading
+    h2{
+      color: var(--link);
+    text-transform: capitalize;
+
+    }
+  }
 }

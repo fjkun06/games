@@ -1,10 +1,128 @@
 @use "../util/mixins";
-nav {
-  border: 1px solid red;
+@use "../util/variables";
+@keyframes fadein {
+  0%,
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
-  //1rem === 10px based on configuration
+//1rem === 10px based on configuration
+nav {
   @include mixins.size(100vw, 7rem);
   @include mixins.flex;
+  background-color: var(--primary);
+  transition: height 0.5s ease-in-out;
+  @media only screen and (width > 840px) {
+    height: 7rem;
+  }
+  flex-wrap: wrap;
 
-/*************************Styling navbar links*************************/
+  /*************************Styling navbar links*************************/
+  .nav_link {
+    @include mixins.size(100%, 80%);
+    @media only screen and (width > 800px) {
+      font-size: 2rem;
+    }
+    @media only screen and (width > 840px) {
+      @include mixins.size(100%);
+    }
+
+    @media only screen and (840px < width < 1200px) {
+      font-size: 1.5rem;
+    }
+
+    @media only screen and (width > 1200px) {
+      font-size: 2rem;
+    }
+    @media only screen and (width > 1500px) {
+      font-size: 2.4rem;
+    }
+    @include mixins.flex;
+    text-transform: capitalize;
+    background-color: var(--primary);
+    color: var(--link);
+    text-transform: capitalize;
+    font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    letter-spacing: 0.15rem;
+    font-weight: 300;
+    transition: background-color 0.25s ease-in-out;
+
+    &:hover {
+      background-color: var(--secondary);
+    }
+  }
+
+  .nav_link-active {
+    background-color: var(--secondary);
+  }
+
+  /*************************Styling mobile navbar links*************************/
+  .nav_link-container {
+    transition: height 0.5s ease-in-out;
+    background-color: #fff;
+    @include mixins.size(100%, calc(100% - 7rem));
+    @include mixins.flex(column);
+    opacity: 0;
+    animation: fadein 0.25s ease-in 0s 1 forwards;
+
+    @media only screen and (width > 840px) {
+      animation: none;
+      opacity: 1;
+      @include mixins.flex;
+      @include mixins.size(100vw, 100%);
+    }
+  }
+
+  /*************************Styling mobile navbar*************************/
+  .nav_mobile {
+    @include mixins.size(100%, 7rem);
+    align-self: flex-start;
+    background-color: lighten(variables.$primary, 10%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 2rem;
+
+    @media only screen and (width > 840px) {
+      display: none;
+    }
+
+    span {
+      @include mixins.flex;
+      @include mixins.size(4.5rem);
+      svg {
+        -webkit-user-select: none;
+        user-select: none;
+
+        path {
+          stroke: var(--link);
+          transition: all 0.25s ease-in-out;
+        }
+        cursor: pointer;
+      }
+    }
+
+    //Mobile navbar heading
+    h2 {
+      color: var(--link);
+      text-transform: capitalize;
+      font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      letter-spacing: 0.15rem;
+      font-weight: 300;
+    }
+  }
+}
+
+.open {
+  height: 60rem;
+}
+.closed {
+  height: 7rem;
+}
+.off {
+  display: none;
 }

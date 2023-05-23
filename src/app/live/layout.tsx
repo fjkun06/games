@@ -12,8 +12,8 @@ export default function LiveLayout({
   children: React.ReactNode
 }) {
   return (
-    <main lang="en">
+    <section>
       {children}
-    </main>
+    </section>
   )
 }

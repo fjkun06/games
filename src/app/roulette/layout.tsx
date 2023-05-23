@@ -12,8 +12,8 @@ export default function RouletteLayout({
   children: React.ReactNode
 }) {
   return (
-    <main lang="en">
+    <section>
       {children}
-    </main>
+    </section>
   )
 }

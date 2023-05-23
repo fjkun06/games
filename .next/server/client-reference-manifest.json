@@ -757,6 +757,136 @@
         ],
         "async": false
       }
+    },
+    "(app-client)/./node_modules/next/dist/client/link.js": {
+      "*": {
+        "id": "(sc_client)/./node_modules/next/dist/client/link.js",
+        "name": "*",
+        "chunks": [
+          "app/layout:static/chunks/app/layout.js"
+        ],
+        "async": false
+      },
+      "": {
+        "id": "(sc_client)/./node_modules/next/dist/client/link.js",
+        "name": "",
+        "chunks": [
+          "app/layout:static/chunks/app/layout.js"
+        ],
+        "async": false
+      },
+      "default": {
+        "id": "(sc_client)/./node_modules/next/dist/client/link.js",
+        "name": "default",
+        "chunks": [
+          "app/layout:static/chunks/app/layout.js"
+        ],
+        "async": false
+      }
+    },
+    "(app-client)/./src/stories/NavLink.tsx": {
+      "*": {
+        "id": "(sc_client)/./src/stories/NavLink.tsx",
+        "name": "*",
+        "chunks": [
+          "app/layout:static/chunks/app/layout.js"
+        ],
+        "async": false
+      },
+      "": {
+        "id": "(sc_client)/./src/stories/NavLink.tsx",
+        "name": "",
+        "chunks": [
+          "app/layout:static/chunks/app/layout.js"
+        ],
+        "async": false
+      },
+      "NavLink": {
+        "id": "(sc_client)/./src/stories/NavLink.tsx",
+        "name": "NavLink",
+        "chunks": [
+          "app/layout:static/chunks/app/layout.js"
+        ],
+        "async": false
+      }
+    },
+    "(app-client)/./src/stories/Navbar.tsx": {
+      "*": {
+        "id": "(sc_client)/./src/stories/Navbar.tsx",
+        "name": "*",
+        "chunks": [
+          "app/layout:static/chunks/app/layout.js"
+        ],
+        "async": false
+      },
+      "": {
+        "id": "(sc_client)/./src/stories/Navbar.tsx",
+        "name": "",
+        "chunks": [
+          "app/layout:static/chunks/app/layout.js"
+        ],
+        "async": false
+      },
+      "default": {
+        "id": "(sc_client)/./src/stories/Navbar.tsx",
+        "name": "default",
+        "chunks": [
+          "app/layout:static/chunks/app/layout.js"
+        ],
+        "async": false
+      }
+    },
+    "(app-client)/./src/app/jackpots/page.tsx": {
+      "*": {
+        "id": "(sc_client)/./src/app/jackpots/page.tsx",
+        "name": "*",
+        "chunks": [
+          "app/jackpots/page:static/chunks/app/jackpots/page.js"
+        ],
+        "async": false
+      },
+      "": {
+        "id": "(sc_client)/./src/app/jackpots/page.tsx",
+        "name": "",
+        "chunks": [
+          "app/jackpots/page:static/chunks/app/jackpots/page.js"
+        ],
+        "async": false
+      },
+      "default": {
+        "id": "(sc_client)/./src/app/jackpots/page.tsx",
+        "name": "default",
+        "chunks": [
+          "app/jackpots/page:static/chunks/app/jackpots/page.js"
+        ],
+        "async": false
+      }
+    },
+    "(app-client)/./src/app/new/page.tsx": {
+      "*": {
+        "id": "(sc_client)/./src/app/new/page.tsx",
+        "name": "*",
+        "chunks": [
+          "app/new/page:static/chunks/app/new/page.js"
+        ],
+        "async": false
+      },
+      "": {
+        "id": "(sc_client)/./src/app/new/page.tsx",
+        "name": "",
+        "chunks": [
+          "app/new/page:static/chunks/app/new/page.js"
+        ],
+        "async": false
+      },
+      "default": {
+        "id": "(sc_client)/./src/app/new/page.tsx",
+        "name": "default",
+        "chunks": [
+          "app/new/page:static/chunks/app/new/page.js"
+        ],
+        "async": false
+      }
     }
   },
   "edgeSSRModuleMapping": {},
@@ -2494,19 +2624,156 @@
       ],
       "async": false
     },
-    "D:\\Projects\\Projects 2023\\games\\src\\app\\globals.css#": {
+    "D:\\Projects\\Projects 2023\\games\\src\\styles\\main.scss#": {
       "id": "null",
       "name": "default",
       "chunks": [
         "static/css/app/layout.css"
       ]
     },
-    "D:\\Projects\\Projects 2023\\games\\node_modules\\next\\font\\google\\target.css?{\"path\":\"src\\\\app\\\\layout.tsx\",\"import\":\"Inter\",\"arguments\":[{\"subsets\":[\"latin\"]}],\"variableName\":\"inter\"}#": {
-      "id": "null",
+    "D:\\Projects\\Projects 2023\\games\\node_modules\\next\\dist\\client\\link.js": {
+      "id": "(app-client)/./node_modules/next/dist/client/link.js",
+      "name": "*",
+      "chunks": [
+        "app/layout:static/chunks/app/layout.js"
+      ],
+      "async": false
+    },
+    "D:\\Projects\\Projects 2023\\games\\node_modules\\next\\dist\\esm\\client\\link.js": {
+      "id": "(app-client)/./node_modules/next/dist/client/link.js",
+      "name": "*",
+      "chunks": [
+        "app/layout:static/chunks/app/layout.js"
+      ],
+      "async": false
+    },
+    "D:\\Projects\\Projects 2023\\games\\node_modules\\next\\dist\\client\\link.js#": {
+      "id": "(app-client)/./node_modules/next/dist/client/link.js",
+      "name": "",
+      "chunks": [
+        "app/layout:static/chunks/app/layout.js"
+      ],
+      "async": false
+    },
+    "D:\\Projects\\Projects 2023\\games\\node_modules\\next\\dist\\esm\\client\\link.js#": {
+      "id": "(app-client)/./node_modules/next/dist/client/link.js",
+      "name": "",
+      "chunks": [
+        "app/layout:static/chunks/app/layout.js"
+      ],
+      "async": false
+    },
+    "D:\\Projects\\Projects 2023\\games\\node_modules\\next\\dist\\client\\link.js#default": {
+      "id": "(app-client)/./node_modules/next/dist/client/link.js",
       "name": "default",
       "chunks": [
-        "static/css/app/layout.css"
-      ]
+        "app/layout:static/chunks/app/layout.js"
+      ],
+      "async": false
+    },
+    "D:\\Projects\\Projects 2023\\games\\node_modules\\next\\dist\\esm\\client\\link.js#default": {
+      "id": "(app-client)/./node_modules/next/dist/client/link.js",
+      "name": "default",
+      "chunks": [
+        "app/layout:static/chunks/app/layout.js"
+      ],
+      "async": false
+    },
+    "D:\\Projects\\Projects 2023\\games\\src\\stories\\NavLink.tsx": {
+      "id": "(app-client)/./src/stories/NavLink.tsx",
+      "name": "*",
+      "chunks": [
+        "app/layout:static/chunks/app/layout.js"
+      ],
+      "async": false
+    },
+    "D:\\Projects\\Projects 2023\\games\\src\\stories\\NavLink.tsx#": {
+      "id": "(app-client)/./src/stories/NavLink.tsx",
+      "name": "",
+      "chunks": [
+        "app/layout:static/chunks/app/layout.js"
+      ],
+      "async": false
+    },
+    "D:\\Projects\\Projects 2023\\games\\src\\stories\\NavLink.tsx#NavLink": {
+      "id": "(app-client)/./src/stories/NavLink.tsx",
+      "name": "NavLink",
+      "chunks": [
+        "app/layout:static/chunks/app/layout.js"
+      ],
+      "async": false
+    },
+    "D:\\Projects\\Projects 2023\\games\\src\\stories\\Navbar.tsx": {
+      "id": "(app-client)/./src/stories/Navbar.tsx",
+      "name": "*",
+      "chunks": [
+        "app/layout:static/chunks/app/layout.js"
+      ],
+      "async": false
+    },
+    "D:\\Projects\\Projects 2023\\games\\src\\stories\\Navbar.tsx#": {
+      "id": "(app-client)/./src/stories/Navbar.tsx",
+      "name": "",
+      "chunks": [
+        "app/layout:static/chunks/app/layout.js"
+      ],
+      "async": false
+    },
+    "D:\\Projects\\Projects 2023\\games\\src\\stories\\Navbar.tsx#default": {
+      "id": "(app-client)/./src/stories/Navbar.tsx",
+      "name": "default",
+      "chunks": [
+        "app/layout:static/chunks/app/layout.js"
+      ],
+      "async": false
+    },
+    "D:\\Projects\\Projects 2023\\games\\src\\app\\jackpots\\page.tsx": {
+      "id": "(app-client)/./src/app/jackpots/page.tsx",
+      "name": "*",
+      "chunks": [
+        "app/jackpots/page:static/chunks/app/jackpots/page.js"
+      ],
+      "async": false
+    },
+    "D:\\Projects\\Projects 2023\\games\\src\\app\\jackpots\\page.tsx#": {
+      "id": "(app-client)/./src/app/jackpots/page.tsx",
+      "name": "",
+      "chunks": [
+        "app/jackpots/page:static/chunks/app/jackpots/page.js"
+      ],
+      "async": false
+    },
+    "D:\\Projects\\Projects 2023\\games\\src\\app\\jackpots\\page.tsx#default": {
+      "id": "(app-client)/./src/app/jackpots/page.tsx",
+      "name": "default",
+      "chunks": [
+        "app/jackpots/page:static/chunks/app/jackpots/page.js"
+      ],
+      "async": false
+    },
+    "D:\\Projects\\Projects 2023\\games\\src\\app\\new\\page.tsx": {
+      "id": "(app-client)/./src/app/new/page.tsx",
+      "name": "*",
+      "chunks": [
+        "app/new/page:static/chunks/app/new/page.js"
+      ],
+      "async": false
+    },
+    "D:\\Projects\\Projects 2023\\games\\src\\app\\new\\page.tsx#": {
+      "id": "(app-client)/./src/app/new/page.tsx",
+      "name": "",
+      "chunks": [
+        "app/new/page:static/chunks/app/new/page.js"
+      ],
+      "async": false
+    },
+    "D:\\Projects\\Projects 2023\\games\\src\\app\\new\\page.tsx#default": {
+      "id": "(app-client)/./src/app/new/page.tsx",
+      "name": "default",
+      "chunks": [
+        "app/new/page:static/chunks/app/new/page.js"
+      ],
+      "async": false
     }
   }
 }

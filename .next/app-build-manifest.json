@@ -6,15 +6,40 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/jackpot/layout": [
+    "/jackpots/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/jackpot/layout.js"
+      "static/chunks/app/jackpots/page.js"
     ],
-    "/jackpot/page": [
+    "/jackpots/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/jackpot/page.js"
+      "static/chunks/app/jackpots/layout.js"
+    ],
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/page.js"
+    ],
+    "/table/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/table/page.js"
+    ],
+    "/table/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/table/layout.js"
+    ],
+    "/slots/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/slots/page.js"
+    ],
+    "/slots/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/slots/layout.js"
     ]
   }
 }

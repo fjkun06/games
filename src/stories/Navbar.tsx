@@ -46,7 +46,6 @@ const Navbar: React.FC<NavbarProps> = ({ isOpen, handleClick }) => {
             </svg>
           )}
         </span>
-        {/* {...navLinks.filter((link) => lin} */}
       </div>
       <div className={isOpen ? "nav_link-container" : "off"}>
         {navLinks.map((link) => {

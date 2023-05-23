@@ -1,4 +1,6 @@
 {
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/poker/page": "app/poker/page.js",
   "/other/page": "app/other/page.js",
   "/roulette/page": "app/roulette/page.js"
 }

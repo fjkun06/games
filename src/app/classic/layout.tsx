@@ -12,8 +12,8 @@ export default function ClassicLayout({
   children: React.ReactNode
 }) {
   return (
-    <section>
+    <>
       {children}
-    </section>
+    </>
   )
 }

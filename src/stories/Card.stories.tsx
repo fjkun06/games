@@ -33,8 +33,8 @@ export const JackpotNew: Story = {
 };
 
 export const Top: Story = {
-  args: { ribbonType: "top" },
+  args: { ribbonType: "top_games" },
 };
 export const JackpotTop: Story = {
-  args: { isJackpot: true, ribbonType: "top" },
+  args: { isJackpot: true, ribbonType: "top_games" },
 };

@@ -1,0 +1,13 @@
+@use "../util//mixins";
+@use "../util//variables";
+.game_error {
+  @include mixins.size(100vw, calc(100vh - 14rem));
+  @include mixins.flex;
+  @include mixins.cardtext;
+  gap: 1rem;
+
+  #fehler {
+    color: red;
+    text-transform: capitalize;
+  }
+}

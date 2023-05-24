@@ -1,5 +1,39 @@
-export default function Jackpot() {
-  return <div>Top games
-    <p className="">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta aperiam nobis, omnis eum ratione odio, consectetur qui odit illum, quo unde? Asperiores, praesentium. Rerum eligendi nihil amet reiciendis accusantium. Quisquam nulla tempora aperiam, sit, minus soluta, ducimus dolor libero adipisci facilis suscipit debitis deserunt dolore veniam? Atque, ducimus porro est illo excepturi ipsam quisquam officiis quos quas quis minus obcaecati, dolor deserunt, tenetur recusandae fugiat suscipit quam blanditiis animi pariatur tempore modi quod! Autem, temporibus ut rem facere optio dolore reprehenderit eaque consequuntur unde magnam quaerat magni, nemo in qui dicta, omnis doloribus debitis? Incidunt tenetur aliquam doloribus est veniam dolore rem maxime beatae omnis illo consectetur, facilis autem tempore assumenda doloremque eos reprehenderit consequuntur error laudantium earum ex recusandae cum? Architecto nam consequatur quod animi incidunt! Consequuntur quasi eos sequi culpa harum dolor, aperiam praesentium assumenda rerum at magnam ea nisi dicta modi officiis odio alias unde. Quo nemo impedit accusamus officiis ut libero aspernatur ducimus similique recusandae, laborum labore deserunt sunt nihil voluptatum, aut odio obcaecati a modi doloribus. Obcaecati expedita illo laboriosam minus eos sunt maxime temporibus, aliquid asperiores aliquam deleniti blanditiis magni odit nihil. Laborum libero vitae nulla quisquam minus veritatis expedita ex praesentium ratione culpa optio est nostrum ad maiores vero illum voluptatum placeat, perspiciatis, nobis a cupiditate ut suscipit. Distinctio in reiciendis praesentium quis eos asperiores optio voluptas ullam? Ut in hic sint nihil aliquid incidunt aliquam molestias amet nostrum, optio libero quaerat, inventore dolorum natus delectus exercitationem cum labore explicabo vero porro asperiores soluta laborum ea autem? Molestiae itaque suscipit ab atque ipsum ipsa obcaecati assumenda iste velit ipsam recusandae, facere aspernatur voluptate quas culpa cum, eum veritatis. Adipisci voluptas repellendus hic culpa cumque veritatis, explicabo pariatur nobis, expedita mollitia totam! Consectetur soluta mollitia pariatur voluptatibus possimus modi magni nam earum? Vero tenetur ex architecto beatae eos, qui voluptatum dicta voluptate eum quasi officia consequuntur, magni, inventore quos voluptatem ducimus quibusdam accusantium soluta? Labore doloremque odit obcaecati illo cupiditate ipsam incidunt maiores. Voluptatum numquam quod dignissimos aliquid sint dolorum, nostrum perferendis doloribus illum reprehenderit molestias, quos ea animi ipsam facere deleniti laboriosam, est eligendi voluptate ab autem provident a expedita iusto. Eum blanditiis ipsum eius necessitatibus fuga deserunt voluptas culpa, repellendus cupiditate quae quisquam earum eos. Eveniet ex quos consequuntur repudiandae nostrum quibusdam officia corporis, nihil delectus suscipit eius esse sunt commodi, reprehenderit consectetur nulla, est quasi tempore blanditiis ratione doloribus? Tempora omnis minus rem ducimus totam quisquam pariatur accusantium, ea debitis nisi veritatis officiis! Perferendis animi quam quod, harum ea odit eveniet nam vitae iusto fugiat obcaecati a incidunt doloribus possimus, reiciendis molestiae quidem, magnam delectus quo natus repellat nesciunt corrupti. Facere ipsam provident, totam, soluta itaque laborum inventore, tempora minus delectus maiores obcaecati dolorem consequatur! Excepturi, facere quis. Dolorum aliquam voluptate ipsa similique magni quos voluptatibus, nihil maiores sed fuga. Quas blanditiis cupiditate iure. Deserunt, ducimus dolores. Ad quidem, esse architecto, adipisci unde consequuntur eos fugiat similique, ipsum fuga beatae quam nulla assumenda exercitationem molestiae maxime perferendis earum harum autem quos!</p>
-  </div>;
+import { Data, getDataByCategory } from "@/functions/getDataByCategory";
+
+async function getData() {
+  const data = await fetch("http://stage.whgstage.com/front-end-test/games.php");
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
+
+  // Recommendation: handle errors
+  if (!data.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+  return data.json();
+
+  // return res.json();
+}
+async function getJackpotData() {
+  const data = await fetch("https://stage.whgstage.com/front-end-test/jackpots.php");
+  // The return value is *not* serialized
+  if (!data.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return data.json();
+
+  // return res.json();
+}
+export default async function Page() {
+  const data = await getData();
+  const jackpots = await getJackpotData();
+  return (
+    <section className="games_page">
+      {...getDataByCategory(
+        data.filter((c: Data) => c?.categories?.some((el) => el === "top")),
+        jackpots,
+        "top_games"
+      )}
+    </section>
+  );
 }

@@ -42,3 +42,24 @@
   grid-row: #{$row};
   grid-column: #{$column};
 }
+
+/******************************Card Text******************************/
+@mixin cardtext {
+  font-family: "BioRhyme", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  @media only screen and (width > 800px) {
+    font-size: 2rem;
+  }
+
+  @media only screen and (840px < width < 1200px) {
+    font-size: 1.5rem;
+  }
+
+  @media only screen and (width > 1200px) {
+    font-size: 2rem;
+  }
+  @media only screen and (width > 1500px) {
+    font-size: 2.2rem;
+  }
+}

@@ -3,13 +3,23 @@
 import Navbar from "@/stories/Navbar";
 import "../styles/main.scss";
 import "@fontsource/roboto";
-import '@fontsource/biorhyme';
-import React from "react";
+import "@fontsource/biorhyme";
+import React, { Suspense } from "react";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import Footer from "@/stories/Footer";
+import { ErrorBoundary } from "react-error-boundary";
 export const metadata = {
   title: "Games",
   description: "Game application",
+};
+
+const Fallback = ({ error, resetErrorBoundary }: { error: any; resetErrorBoundary: any }) => {
+  return (
+    <div role="alert" className="game_error">
+      <p>Something went wrong, please refresh the page.</p>
+      <p id="fehler">{error.message}</p>
+    </div>
+  );
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -32,7 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       setIsOpen(false);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    if (!lg) window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -43,14 +53,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body>
         <Navbar handleClick={toggleNavbar} isOpen={isOpen} />
-        <main
-          id="container"
-          onClick={() => {
-            if (!lg) setIsOpen(false);
-          }}
-        >
-          {children}
-        </main>
+        <ErrorBoundary FallbackComponent={Fallback} onReset={(details) => console.log("Error details: ", details)}>
+          <main
+            id="container"
+            onClick={() => {
+              if (!lg) setIsOpen(false);
+            }}
+          >
+            <Suspense fallback={<p>Loading...</p>}>{children}</Suspense>
+          </main>
+        </ErrorBoundary>
         <Footer />
       </body>
     </html>

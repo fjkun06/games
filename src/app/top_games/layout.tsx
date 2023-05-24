@@ -12,8 +12,8 @@ export default function TopGamesLayout({
   children: React.ReactNode
 }) {
   return (
-    <section>
+    <>
       {children}
-    </section>
+    </>
   )
 }

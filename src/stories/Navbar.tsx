@@ -26,6 +26,7 @@ interface Category {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ isOpen, handleClick }) => {
+  const navLinks = ["top_games", "new", "slots", "blackjack", "roulette", "classic", "poker", "other"];
   const allCategory = new Set();
   const { data, error } = useSWR("http://stage.whgstage.com/front-end-test/games.php", fetcher);
   data !== undefined &&
@@ -60,13 +61,19 @@ const Navbar: React.FC<NavbarProps> = ({ isOpen, handleClick }) => {
         </span>
       </div>
       <div className={isOpen ? "nav_link-container" : "off"}>
-        {allCategory.size > 1 &&
-          [...allCategory].map((link) => {
-            const castedLink = link as string;
-            if (castedLink === "new") return <NavLink toggle={handleClick} href={`/${castedLink}`} text="new games" key={nanoid()} />;
-            if (castedLink === "top") return <NavLink toggle={handleClick} href={`/top_games`} text="top games" key={nanoid()} />;
-            return <NavLink toggle={toggler} href={`/${castedLink}`} text={castedLink} key={nanoid()} />;
-          })}
+        {allCategory.size > 1
+          ? [...allCategory].map((link) => {
+              const castedLink = link as string;
+              if (castedLink === "new") return <NavLink toggle={handleClick} href={`/${castedLink}`} text="new games" key={nanoid()} />;
+              if (castedLink === "top") return <NavLink toggle={handleClick} href={`/top_games`} text="top games" key={nanoid()} />;
+              return <NavLink toggle={toggler} href={`/${castedLink}`} text={castedLink} key={nanoid()} />;
+            })
+          : [...navLinks].map((link) => {
+              const castedLink = link as string;
+              if (castedLink === "new") return <NavLink toggle={handleClick} href={`/${castedLink}`} text="new games" key={nanoid()} />;
+              if (castedLink === "top") return <NavLink toggle={handleClick} href={`/top_games`} text="top games" key={nanoid()} />;
+              return <NavLink toggle={toggler} href={`/${castedLink}`} text={castedLink} key={nanoid()} />;
+            })}
       </div>
     </nav>
   );

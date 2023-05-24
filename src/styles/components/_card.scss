@@ -1,11 +1,29 @@
 @use "../util//mixins";
 @use "../util//variables";
+@mixin cardtext {
+  font-family: "BioRhyme", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  @media only screen and (width > 800px) {
+    font-size: 2rem;
+  }
+
+  @media only screen and (840px < width < 1200px) {
+    font-size: 1.5rem;
+  }
+
+  @media only screen and (width > 1200px) {
+    font-size: 2rem;
+  }
+  @media only screen and (width > 1500px) {
+    font-size: 2.2rem;
+  }
+}
 article.game_card {
   @include mixins.customgrid(1, 1, 1fr);
 
   background-color: var(--secondary);
   @include mixins.size(30rem, 20rem);
-  // @include mixins.size(26rem,15.4rem);
   border-radius: 2rem;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
   cursor: pointer;
@@ -19,7 +37,7 @@ article.game_card {
       z-index: 3;
     }
   }
-  //both cards
+  /********************************Common Styles*******************************/
   span.game_card-default,
   span.game_card-play,
   span.game_card-ribbon,
@@ -32,6 +50,7 @@ article.game_card {
     color: var(--link);
   }
 
+  /********************************Styling normal card*******************************/
   span.game_card-default {
     z-index: 1;
     overflow: hidden;
@@ -41,6 +60,7 @@ article.game_card {
     }
   }
 
+  /********************************Styling card with jackpot*******************************/
   span.game_card-jackpot {
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
@@ -48,24 +68,10 @@ article.game_card {
     z-index: 2;
     align-self: flex-start;
     background-color: transparentize(black, 0.75);
-    font-family: "BioRhyme", sans-serif;
-    font-weight: 700;
-    letter-spacing: 0.1rem;
-    @media only screen and (width > 800px) {
-      font-size: 2rem;
-    }
-
-    @media only screen and (840px < width < 1200px) {
-      font-size: 1.5rem;
-    }
-
-    @media only screen and (width > 1200px) {
-      font-size: 2rem;
-    }
-    @media only screen and (width > 1500px) {
-      font-size: 2.2rem;
-    }
+    @include cardtext;
   }
+
+  /********************************Styling card with ribbon*******************************/
   span.game_card-ribbon {
     justify-content: flex-end;
     align-items: flex-start;
@@ -88,20 +94,31 @@ article.game_card {
     }
   }
 
+  /********************************Styling card on hover*******************************/
   span.game_card-play {
     display: none;
     @media (width > 640px) {
       display: flex;
-      // border: 1px solid red;
-      z-index: 2;
-      // background-color: transparentize($color: #000000, $amount: 0)
-      background-color: transparentize(variables.$secondary, 0.5);
-      opacity: 0;
-      transition: opacity 0.25s ease-in-out;
-      // display: none;
-      span {
-        cursor: pointer;
-      }
+    }
+    z-index: 2;
+    background-color: transparentize(variables.$secondary, 0.5);
+    opacity: 0;
+    transition: opacity 0.25s ease-in-out;
+    flex-direction: column;
+    gap: 3rem;
+    span {
+      cursor: pointer;
+    }
+
+    &--name {
+      @include cardtext;
+      text-transform: uppercase;
+      width: 100%;
+      @include mixins.flex;
+      flex-wrap: wrap;
+      padding-inline: 1rem;
+      text-align: center;
+      color: var(--tertiary);
     }
   }
 }

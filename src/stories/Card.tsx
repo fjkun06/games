@@ -1,30 +1,13 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import React from "react";
 import test from "../../public/test.jpg";
 import TopRibbon from "./../components/TopRibbon";
 import NewRibbon from "./../components/NewRibbon";
 interface CardProps {
   /**
-   * Is this the principal call to action on the page?
+   * Card image source
    */
-  primary?: boolean;
-  /**
-   * What background color to use
-   */
-  backgroundColor?: string;
-  /**
-   * How large should the button be?
-   */
-  size?: "small" | "medium" | "large";
-  /**
-   * Button contents
-   */
-  label?: string;
-  /**
-   * Optional click handler
-   */
- 
-  children?: React.ReactNode;
+  src: string | StaticImageData;
   /**
    * Determines ribbon text and eqaully if the item has a ribbon
    */
@@ -37,19 +20,24 @@ interface CardProps {
    * Determines if an item is a jackpot
    */
   isJackpot?: boolean;
+  /**
+   * The name of the item
+   */
+  name: string;
 }
 
 /**
  * Primary UI component for user interaction
  */
-const Card: React.FC<CardProps> = ({ children, ribbonType, jackpot, isJackpot }) => {
+const Card: React.FC<CardProps> = ({ src, ribbonType, jackpot, isJackpot,name }) => {
   return (
     <article className="game_card">
       <span className="game_card-default">
-        <Image src={test} alt="game image" />
+        <Image src={src} alt="game image" />
       </span>
       {/* <span className="game_card-default">{children}</span> */}
       <span className="game_card-play">
+        <span className="game_card-play--name">{name}</span>
         <span>Play</span>
       </span>
 

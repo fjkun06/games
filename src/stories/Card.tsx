@@ -23,10 +23,7 @@ interface CardProps {
   /**
    * Optional click handler
    */
-  onClick?: () => void;
-  /**
-   * Sub elements or text
-   */
+ 
   children?: React.ReactNode;
   /**
    * Determines ribbon text and eqaully if the item has a ribbon
@@ -36,12 +33,16 @@ interface CardProps {
    * Determines if there will be jackpot and displays its value
    */
   jackpot?: number;
+  /**
+   * Determines if an item is a jackpot
+   */
+  isJackpot?: boolean;
 }
 
 /**
  * Primary UI component for user interaction
  */
-const Card: React.FC<CardProps> = ({ children, ribbonType }) => {
+const Card: React.FC<CardProps> = ({ children, ribbonType, jackpot, isJackpot }) => {
   return (
     <article className="game_card">
       <span className="game_card-default">
@@ -51,9 +52,12 @@ const Card: React.FC<CardProps> = ({ children, ribbonType }) => {
       <span className="game_card-play">
         <span>Play</span>
       </span>
-      <span className="game_card-jackpot">
-        <span>$123,564.78</span>
-      </span>
+
+      {isJackpot && (
+        <span className="game_card-jackpot">
+          <span>{jackpot ?? "$123,564.78"}</span>
+        </span>
+      )}
 
       {ribbonType === "new" && (
         <span className="game_card-ribbon">

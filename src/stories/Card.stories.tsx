@@ -22,13 +22,21 @@ export const Primary: Story = {
 };
 
 export const Jackpot: Story = {
-  args: {},
+  args: {
+    isJackpot: true,
+  },
 };
 
 export const New: Story = {
-  args: {ribbonType:"new"},
+  args: { ribbonType: "new" },
+};
+export const JackpotNew: Story = {
+  args: { isJackpot: true, ribbonType: "new" },
 };
 
 export const Top: Story = {
-  args: {ribbonType:"top"},
+  args: { ribbonType: "top" },
+};
+export const JackpotTop: Story = {
+  args: { isJackpot: true, ribbonType: "top" },
 };

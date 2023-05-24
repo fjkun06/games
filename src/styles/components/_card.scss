@@ -29,11 +29,11 @@ article.game_card {
     @include mixins.position("1/2");
     @include mixins.flex;
     border-radius: 2rem;
+    color: var(--link);
   }
 
   span.game_card-default {
     z-index: 1;
-    background-color: gold;
     overflow: hidden;
     img {
       object-fit: cover;

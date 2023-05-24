@@ -2,7 +2,7 @@ import { Data, getDataByCategory } from "@/functions/getDataByCategory";
 import { useRouter } from "next/navigation";
 
 async function getData() {
-  const data = await fetch("http://stage.whgstage.com/front-end-test/games.php", { next: { revalidate: 5 } });
+  const data = await fetch("http://stage.whgstage.com/front-end-test/games.php");
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 
@@ -16,7 +16,7 @@ async function getData() {
   // return res.json();
 }
 async function getJackpotData() {
-  const data = await fetch("https://stage.whgstage.com/front-end-test/jackpots.php", { next: { revalidate: 5 } });
+  const data = await fetch("https://stage.whgstage.com/front-end-test/jackpots.php");
   // The return value is *not* serialized
   if (!data.ok) {
     throw new Error("Failed to fetch data");
@@ -26,14 +26,14 @@ async function getJackpotData() {
   // return res.json();
 }
 export default async function Page() {
-  
   const data = await getData();
   const jackpots = await getJackpotData();
   return (
     <section className="games_page">
       {...getDataByCategory(
         data.filter((c: Data) => c?.categories?.some((el) => el === "new")),
-        jackpots,"new"
+        jackpots,
+        "new"
       )}
     </section>
   );

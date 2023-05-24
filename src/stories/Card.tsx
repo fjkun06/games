@@ -41,7 +41,7 @@ const Card: React.FC<CardProps> = ({ src, ribbonType, jackpot, isJackpot, name }
        let start = performance.now();
        const loop = (curr: number) => {
          if (curr - start >= ms) {
-           router.refresh();
+          //  router.refresh();
            start = curr;
          }
  

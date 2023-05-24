@@ -42,7 +42,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body>
         <Navbar handleClick={toggleNavbar} isOpen={isOpen} />
-        <main id="container" onClick={() => setIsOpen(false)}>{children}</main>
+        <main
+          id="container"
+          onClick={() => {
+            if (!lg) setIsOpen(false);
+          }}
+        >
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

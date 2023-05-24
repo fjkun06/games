@@ -12,8 +12,8 @@ export default function NewLayout({
   children: React.ReactNode
 }) {
   return (
-    <section>
+    <>
       {children}
-    </section>
+    </>
   )
 }

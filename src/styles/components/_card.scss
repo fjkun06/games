@@ -1,0 +1,51 @@
+@use "../util//mixins";
+@use "../util//variables";
+article.game_card {
+  @include mixins.customgrid(1, 1, 1fr);
+
+  background-color: var(--secondary);
+  @include mixins.size(30rem, 22rem);
+  // @include mixins.size(26rem,15.4rem);
+  border-radius: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+  cursor: pointer;
+  transition: transform 0.25s ease-in-out;
+
+  /********************************Play button on hovers*******************************/
+  &:hover {
+    transform: scale(1.05);
+    span.game_card-play {
+      opacity: 1;
+      z-index: 3;
+    }
+  }
+  span.game_card-play {
+    // border: 1px solid red;
+    @include mixins.size(100%);
+    z-index: 2;
+    @include mixins.position("1/2");
+    @include mixins.flex;
+    // background-color: transparentize($color: #000000, $amount: 0)
+    background-color: transparentize(variables.$secondary, 0.5);
+    border-radius: 2rem;
+    opacity: 0;
+    transition: opacity 0.25s ease-in-out;
+    // display: none;
+    span {
+      cursor: pointer;
+    }
+  }
+  span.game_card-default {
+    @include mixins.size(100%);
+    border-radius: 2rem;
+    z-index: 1;
+    @include mixins.position("1/2");
+    @include mixins.flex;
+    background-color: gold;
+    overflow: hidden;
+    img {
+      object-fit: cover;
+      @include mixins.size(100%);
+    }
+  }
+}

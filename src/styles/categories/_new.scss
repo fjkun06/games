@@ -1,0 +1,31 @@
+@use "../util//mixins";
+@use "../util//variables";
+section.games_new {
+  background-color: #fff;
+  @include mixins.flex;
+  // @include mixins.size(100vw, calc(100vh - 14rem));
+  color: var(--link);
+  flex-wrap: wrap;
+  padding: 3rem;
+  column-gap: 2rem;
+  row-gap: 2rem;
+  @media only screen and (width > 800px) {
+    font-size: 2rem;
+  }
+  @media only screen and (width > 840px) {
+  }
+
+  @media only screen and (840px < width < 1200px) {
+  }
+
+  @media only screen and (width > 1200px) {
+  }
+  @media only screen and (width > 1500px) {
+    padding-inline: 15rem;
+  }
+
+  /********************************All articles*******************************/
+  // article {
+   
+  // }
+}

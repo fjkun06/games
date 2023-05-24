@@ -1,6 +1,8 @@
 import Image from "next/image";
 import React from "react";
 import test from "../../public/test.jpg";
+import TopRibbon from "@/components/TopRibbon";
+import NewRibbon from "@/components/NewRibbon";
 interface CardProps {
   /**
    * Is this the principal call to action on the page?
@@ -39,6 +41,8 @@ const Card: React.FC<CardProps> = ({ children }) => {
       </span>
       {/* <span className="game_card-default">{children}</span> */}
       <span className="game_card-play"><span>Play</span></span>
+      <span className="game_card-ribbon"><NewRibbon/></span>
+      {/* <span className="game_card-ribbon"><TopRibbon/></span> */}
     </article>
   );
 };

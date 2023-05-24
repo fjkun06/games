@@ -12,40 +12,65 @@ article.game_card {
   transition: transform 0.25s ease-in-out;
 
   /********************************Play button on hovers*******************************/
-  &:hover {
-    transform: scale(1.05);
-    span.game_card-play {
-      opacity: 1;
-      z-index: 3;
+  @media (min-width: 640px) {
+    &:hover {
+      transform: scale(1.05);
+      span.game_card-play {
+        opacity: 1;
+        z-index: 3;
+      }
     }
-  }
-  span.game_card-play {
-    // border: 1px solid red;
-    @include mixins.size(100%);
-    z-index: 2;
-    @include mixins.position("1/2");
-    @include mixins.flex;
-    // background-color: transparentize($color: #000000, $amount: 0)
-    background-color: transparentize(variables.$secondary, 0.5);
-    border-radius: 2rem;
-    opacity: 0;
-    transition: opacity 0.25s ease-in-out;
-    // display: none;
-    span {
-      cursor: pointer;
-    }
-  }
-  span.game_card-default {
-    @include mixins.size(100%);
-    border-radius: 2rem;
-    z-index: 1;
-    @include mixins.position("1/2");
-    @include mixins.flex;
-    background-color: gold;
-    overflow: hidden;
-    img {
-      object-fit: cover;
+    //both cards
+    span.game_card-default,
+    span.game_card-play,
+    span.game_card-ribbon {
       @include mixins.size(100%);
+      @include mixins.position("1/2");
+      @include mixins.flex;
+      border-radius: 2rem;
+    }
+
+    span.game_card-play {
+      // border: 1px solid red;
+      z-index: 2;
+      // background-color: transparentize($color: #000000, $amount: 0)
+      background-color: transparentize(variables.$secondary, 0.5);
+      opacity: 0;
+      transition: opacity 0.25s ease-in-out;
+      // display: none;
+      span {
+        cursor: pointer;
+      }
+    }
+    span.game_card-default {
+      z-index: 1;
+      background-color: gold;
+      overflow: hidden;
+      img {
+        object-fit: cover;
+        @include mixins.size(100%);
+      }
+    }
+    span.game_card-ribbon {
+      justify-content: flex-end;
+      align-items: flex-start;
+      z-index: 2;
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-2 {
+        fill: #67ca35;
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+      svg {
+        @include mixins.size(80%);
+        transform: translate(33px, -9px);
+        fill: red;
+      }
     }
   }
 }

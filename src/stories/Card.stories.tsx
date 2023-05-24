@@ -26,9 +26,9 @@ export const Jackpot: Story = {
 };
 
 export const New: Story = {
-  args: {},
+  args: {ribbonType:"new"},
 };
 
 export const Top: Story = {
-  args: {},
+  args: {ribbonType:"top"},
 };

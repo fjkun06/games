@@ -11,6 +11,8 @@ section.games_new {
   row-gap: 2rem;
   @media only screen and (width > 800px) {
     font-size: 2rem;
+    row-gap: 4rem;
+    column-gap: 4rem;
   }
   @media only screen and (width > 840px) {
   }
@@ -19,6 +21,8 @@ section.games_new {
   }
 
   @media only screen and (width > 1200px) {
+    row-gap: 8rem;
+    column-gap: 2rem;
   }
   @media only screen and (width > 1500px) {
     padding-inline: 15rem;
@@ -26,6 +30,6 @@ section.games_new {
 
   /********************************All articles*******************************/
   // article {
-   
+
   // }
 }

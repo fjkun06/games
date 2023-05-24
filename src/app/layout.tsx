@@ -3,6 +3,7 @@
 import Navbar from "@/stories/Navbar";
 import "../styles/main.scss";
 import "@fontsource/roboto";
+import '@fontsource/biorhyme';
 import React from "react";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import Footer from "@/stories/Footer";

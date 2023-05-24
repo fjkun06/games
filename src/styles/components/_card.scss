@@ -4,7 +4,7 @@ article.game_card {
   @include mixins.customgrid(1, 1, 1fr);
 
   background-color: var(--secondary);
-  @include mixins.size(30rem, 22rem);
+  @include mixins.size(30rem, 20rem);
   // @include mixins.size(26rem,15.4rem);
   border-radius: 2rem;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
@@ -12,25 +12,86 @@ article.game_card {
   transition: transform 0.25s ease-in-out;
 
   /********************************Play button on hovers*******************************/
-  @media (min-width: 640px) {
-    &:hover {
-      transform: scale(1.05);
-      span.game_card-play {
-        opacity: 1;
-        z-index: 3;
-      }
+  &:hover {
+    transform: scale(1.05);
+    span.game_card-play {
+      opacity: 1;
+      z-index: 3;
     }
-    //both cards
-    span.game_card-default,
-    span.game_card-play,
-    span.game_card-ribbon {
+  }
+  //both cards
+  span.game_card-default,
+  span.game_card-play,
+  span.game_card-ribbon,
+  span.game_card-jackpot {
+    @include mixins.size(100%);
+    @include mixins.size(inherit);
+    @include mixins.position("1/2");
+    @include mixins.flex;
+    border-radius: 2rem;
+  }
+
+  span.game_card-default {
+    z-index: 1;
+    background-color: gold;
+    overflow: hidden;
+    img {
+      object-fit: cover;
       @include mixins.size(100%);
-      @include mixins.position("1/2");
-      @include mixins.flex;
-      border-radius: 2rem;
+    }
+  }
+
+  span.game_card-jackpot {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    height: 27%;
+    z-index: 2;
+    align-self: flex-start;
+    background-color: transparentize(black, 0.75);
+    font-family: "BioRhyme", sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+    @media only screen and (width > 800px) {
+      font-size: 2rem;
     }
 
-    span.game_card-play {
+    @media only screen and (840px < width < 1200px) {
+      font-size: 1.5rem;
+    }
+
+    @media only screen and (width > 1200px) {
+      font-size: 2rem;
+    }
+    @media only screen and (width > 1500px) {
+      font-size: 2.2rem;
+    }
+  }
+  span.game_card-ribbon {
+    justify-content: flex-end;
+    align-items: flex-start;
+    z-index: 2;
+    .cls-1 {
+      fill: url(#linear-gradient);
+    }
+
+    .cls-2 {
+      fill: #67ca35;
+    }
+
+    .cls-3 {
+      fill: #fff;
+    }
+    svg {
+      @include mixins.size(80%);
+      transform: translate(4.7rem, -0.8rem);
+      fill: red;
+    }
+  }
+
+  span.game_card-play {
+    display: none;
+    @media (width > 640px) {
+      display: flex;
       // border: 1px solid red;
       z-index: 2;
       // background-color: transparentize($color: #000000, $amount: 0)
@@ -40,36 +101,6 @@ article.game_card {
       // display: none;
       span {
         cursor: pointer;
-      }
-    }
-    span.game_card-default {
-      z-index: 1;
-      background-color: gold;
-      overflow: hidden;
-      img {
-        object-fit: cover;
-        @include mixins.size(100%);
-      }
-    }
-    span.game_card-ribbon {
-      justify-content: flex-end;
-      align-items: flex-start;
-      z-index: 2;
-      .cls-1 {
-        fill: url(#linear-gradient);
-      }
-
-      .cls-2 {
-        fill: #67ca35;
-      }
-
-      .cls-3 {
-        fill: #fff;
-      }
-      svg {
-        @include mixins.size(80%);
-        transform: translate(33px, -9px);
-        fill: red;
       }
     }
   }

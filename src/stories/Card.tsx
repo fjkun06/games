@@ -41,7 +41,7 @@ const Card: React.FC<CardProps> = ({ src, ribbonType, jackpot, isJackpot, name }
        let start = performance.now();
        const loop = (curr: number) => {
          if (curr - start >= ms) {
-          //  router.refresh();
+           router.refresh();
            start = curr;
          }
  
@@ -66,7 +66,7 @@ const Card: React.FC<CardProps> = ({ src, ribbonType, jackpot, isJackpot, name }
       </span>
       <span className="game_card-play">
         <span className="game_card-play--name">{name}</span>
-        <span>Play</span>
+        <span id="play">Play</span>
       </span>
 
       {isJackpot && (

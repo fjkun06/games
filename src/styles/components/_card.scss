@@ -90,9 +90,19 @@ article.game_card {
     gap: 3rem;
     span {
       cursor: pointer;
+    }
+
+    #play {
       border-radius: 1rem;
       border: 1px solid var(--link);
       @include mixins.cardtext;
+      padding-inline: 2rem;
+      padding-block: 0.5rem;
+      background-color: goldenrod;
+      transition: transform 0.25s ease-in-out;
+      &:hover{
+        transform: scale(1.05)
+      }
     }
 
     &--name {

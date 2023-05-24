@@ -30,7 +30,7 @@ export default async function Page() {
   return (
     <section className="games_page">
       {...getDataByCategory(
-        data.filter((c: Data) => c?.categories?.some((el) => el === "slots")),
+        data.filter((c: Data) => c?.categories?.some((el: string) => el === "slots")),
         jackpots,
         "slots"
       )}

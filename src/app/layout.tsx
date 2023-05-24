@@ -3,7 +3,7 @@
 import Navbar from "@/stories/Navbar";
 import "../styles/main.scss";
 import "@fontsource/roboto";
-import '@fontsource/biorhyme';
+import "@fontsource/biorhyme";
 import React from "react";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import Footer from "@/stories/Footer";
@@ -13,6 +13,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+
   const lg = useMediaQuery("(width > 840px)");
   const [isOpen, setIsOpen] = React.useState(false);
   const toggleNavbar = () => setIsOpen(!isOpen);
@@ -32,7 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       setIsOpen(false);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    if (!lg) window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);

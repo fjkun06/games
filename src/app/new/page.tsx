@@ -1,8 +1,43 @@
-"use client";
-
+// "use client";
+import useSWR from "swr";
 import Card from "@/stories/Card";
 import { nanoid } from "nanoid";
+import axios from "axios";
+import { Data, getDataByCategory } from "@/functions/getDataByCategory";
 
-export default function Jackpot() {
-  return <section className="games_new">{...new Array(15).fill(15).map((x, i) => <Card name='card to  be played by fjkun06' key={nanoid()} src={''} />)}</section>;
+async function getData() {
+  const data = await fetch("http://stage.whgstage.com/front-end-test/games.php", { next: { revalidate: 5 } });
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
+
+  // Recommendation: handle errors
+  if (!data.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+  return data.json();
+
+  // return res.json();
+}
+async function getJackpotData() {
+  const data = await fetch("https://stage.whgstage.com/front-end-test/jackpots.php", { next: { revalidate: 5 } });
+  // The return value is *not* serialized
+  if (!data.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return data.json();
+
+  // return res.json();
+}
+export default async function Page() {
+  const data = await getData();
+  const jackpots = await getJackpotData();
+  return (
+    <section className="games_new">
+      {...getDataByCategory(
+        data.filter((c: Data) => c?.categories?.some((el) => el === "new")),
+        jackpots
+      )}
+    </section>
+  );
 }

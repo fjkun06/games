@@ -8,16 +8,14 @@ import useMediaQuery from "@/hooks/useMediaQuery";
 import axios from "axios";
 import useSWR from "swr";
 
-const fetcher = (url: string) => axios.get(url).then((res) => res.data);
-
 //navbar interface
-interface NavbarProps {
+export interface NavbarProps {
   /**
    * @param {boolean} [isOpen=false] - Used to check if navbar is open or not.
    * @param {void} handleClick - Toggle menu state.
    *
    * */
-  isOpen: boolean;
+  isOpen?: boolean;
   handleClick: () => void;
 }
 
@@ -26,6 +24,8 @@ interface Category {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ isOpen, handleClick }) => {
+  const fetcher = (url: string) => axios.get(url).then((res) => res.data);
+
   const navLinks = ["top_games", "new", "slots", "blackjack", "roulette", "classic", "poker", "other"];
   const allCategory = new Set();
   const { data, error } = useSWR("http://stage.whgstage.com/front-end-test/games.php", fetcher);

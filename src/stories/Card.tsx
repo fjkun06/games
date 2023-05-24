@@ -32,37 +32,37 @@ interface CardProps {
  * Primary UI component for user interaction
  */
 const Card: React.FC<CardProps> = ({ src, ribbonType, jackpot, isJackpot, name }) => {
-   //refresh page after evry 5s
-   const router = useRouter();
+  //refresh page after evry 5s
+  //but i could not use it as i would reduce performance
+  const router = useRouter();
 
-   React.useEffect(() => {
-     let canceler: any;
-     function raf(ms: number) {
-       let start = performance.now();
-       const loop = (curr: number) => {
-         if (curr - start >= ms) {
-           router.refresh();
-           start = curr;
-         }
- 
-         canceler = requestAnimationFrame(loop);
-       };
-       canceler = requestAnimationFrame(loop);
-     }
- 
-     raf(5000);
- 
-     return () => {
-       cancelAnimationFrame(canceler);
-     };
-     // eslint-disable-next-line react-hooks/exhaustive-deps
-   }, []);
+  React.useEffect(() => {
+    let canceler: any;
+    function raf(ms: number) {
+      let start = performance.now();
+      const loop = (curr: number) => {
+        if (curr - start >= ms) {
+          //  router.refresh();
+          start = curr;
+        }
 
+        canceler = requestAnimationFrame(loop);
+      };
+      canceler = requestAnimationFrame(loop);
+    }
+
+    //  raf(5000);
+
+    return () => {
+      //  cancelAnimationFrame(canceler);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <article className="game_card">
       <span className="game_card-default">
-        <Image src={src} alt="game image" width={260} height={154} />
+        <Image src={src} alt={name} width={260} height={154} />
       </span>
       <span className="game_card-play">
         <span className="game_card-play--name">{name}</span>

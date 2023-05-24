@@ -43,7 +43,7 @@ export const getDataByCategory = (data: Data[], jackpot: Jackpot[], route?: stri
           bigData.push({ name, src: `https:${image}`, jackpot: amount, isJackpot: true, ribbonType: "top_games" });
         } else if (route !== "top_games" && route !== "new" && categories.some((e) => e === "new")) {
           bigData.push({ name, src: `https:${image}`, jackpot: amount, isJackpot: true, ribbonType: "new" });
-        } else {
+        } else if (route !== "top_games" && route !== "new" && !categories.some((e) => e === "top") && !categories.some((e) => e === "new")) {
           bigData.push({ name, src: `https:${image}`, jackpot: amount, isJackpot: true });
         }
       } else if (!bigData.some((e) => e.name === name) && !jackpot.some((e) => e.game === id)) {
@@ -57,7 +57,7 @@ export const getDataByCategory = (data: Data[], jackpot: Jackpot[], route?: stri
           bigData.push({ name, src: `https:${image}`, jackpot: 0, isJackpot: false, ribbonType: "top_games" });
         } else if (route !== "top_games" && route !== "new" && categories.some((e) => e === "new")) {
           bigData.push({ name, src: `https:${image}`, jackpot: 0, isJackpot: false, ribbonType: "new" });
-        } else {
+        } else if (route !== "top_games" && route !== "new" && !categories.some((e) => e === "top") && !categories.some((e) => e === "new")) {
           bigData.push({ name, src: `https:${image}`, jackpot: 0, isJackpot: false });
         }
       }

@@ -76,7 +76,7 @@ article.game_card {
     }
   }
 
-  /********************************Styling card on hover*******************************/
+  /********************************Styling card on hover******************************/
   span.game_card-play {
     display: none;
     @media (width > 640px) {
@@ -90,6 +90,9 @@ article.game_card {
     gap: 3rem;
     span {
       cursor: pointer;
+      border-radius: 1rem;
+      border: 1px solid var(--link);
+      @include mixins.cardtext;
     }
 
     &--name {

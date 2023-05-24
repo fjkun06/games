@@ -15,7 +15,7 @@ export const metadata = {
 
 const Fallback = ({ error, resetErrorBoundary }: { error: any; resetErrorBoundary: any }) => {
   return (
-    <div role="alert" className='game_error'>
+    <div role="alert" className="game_error">
       <p>Something went wrong, please refresh the page.</p>
       <p id="fehler">{error.message}</p>
     </div>
@@ -53,7 +53,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body>
         <Navbar handleClick={toggleNavbar} isOpen={isOpen} />
-        <ErrorBoundary FallbackComponent={Fallback}>
+        <ErrorBoundary FallbackComponent={Fallback} onReset={(details) => console.log("Error details: ", details)}>
           <main
             id="container"
             onClick={() => {

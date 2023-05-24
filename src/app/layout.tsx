@@ -3,6 +3,7 @@
 import Navbar from "@/stories/Navbar";
 import "../styles/main.scss";
 import "@fontsource/roboto";
+import '@fontsource/biorhyme';
 import React from "react";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import Footer from "@/stories/Footer";
@@ -42,7 +43,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body>
         <Navbar handleClick={toggleNavbar} isOpen={isOpen} />
-        <main id="container" onClick={() => setIsOpen(false)}>{children}</main>
+        <main
+          id="container"
+          onClick={() => {
+            if (!lg) setIsOpen(false);
+          }}
+        >
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

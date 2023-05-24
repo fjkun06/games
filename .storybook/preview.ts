@@ -1,5 +1,7 @@
 import type { Preview } from "@storybook/react";
-
+import "../src/styles/main.scss";
+import "@fontsource/roboto";
+import '@fontsource/biorhyme';
 const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: "^on[A-Z].*" },

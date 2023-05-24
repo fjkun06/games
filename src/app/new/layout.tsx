@@ -1,5 +1,4 @@
 "use client";
-import { getDataByCategory } from "@/functions/getDataByCategory";
 import { usePathname } from "next/navigation";
 
 export const metadata = {

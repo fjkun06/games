@@ -1,9 +1,5 @@
-// "use client";
-import useSWR from "swr";
-import Card from "@/stories/Card";
-import { nanoid } from "nanoid";
-import axios from "axios";
 import { Data, getDataByCategory } from "@/functions/getDataByCategory";
+import { useRouter } from "next/navigation";
 
 async function getData() {
   const data = await fetch("http://stage.whgstage.com/front-end-test/games.php", { next: { revalidate: 5 } });
@@ -30,13 +26,14 @@ async function getJackpotData() {
   // return res.json();
 }
 export default async function Page() {
+  
   const data = await getData();
   const jackpots = await getJackpotData();
   return (
     <section className="games_page">
       {...getDataByCategory(
         data.filter((c: Data) => c?.categories?.some((el) => el === "new")),
-        jackpots
+        jackpots,"new"
       )}
     </section>
   );

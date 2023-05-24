@@ -13,7 +13,7 @@ interface CardProps {
   /**
    * Determines ribbon text and eqaully if the item has a ribbon
    */
-  ribbonType?: "new" | "top";
+  ribbonType?: "new" | "top_games" | null;
   /**
    * Determines if there will be jackpot and displays its value
    */
@@ -80,7 +80,7 @@ const Card: React.FC<CardProps> = ({ src, ribbonType, jackpot, isJackpot, name }
           <NewRibbon />
         </span>
       )}
-      {ribbonType === "top" && (
+      {ribbonType === "top_games" && (
         <span className="game_card-ribbon">
           <TopRibbon />
         </span>

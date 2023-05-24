@@ -1,6 +1,6 @@
 @use "../util//mixins";
 @use "../util//variables";
-section.games_new {
+section.games_page {
   background-color: #fff;
   @include mixins.flex;
   // @include mixins.size(100vw, calc(100vh - 14rem));

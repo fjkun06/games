@@ -33,7 +33,7 @@ export default async function Page() {
   const data = await getData();
   const jackpots = await getJackpotData();
   return (
-    <section className="games_new">
+    <section className="games_page">
       {...getDataByCategory(
         data.filter((c: Data) => c?.categories?.some((el) => el === "new")),
         jackpots

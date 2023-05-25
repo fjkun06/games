@@ -4,10 +4,19 @@
   @include mixins.size(100vw, calc(100vh - 14rem));
   @include mixins.flex;
   @include mixins.cardtext;
-  gap: 1rem;
+  flex-wrap: nowrap;
+  gap: 2rem;
+  padding-inline: 2rem;
+
+  @media screen and (width < 630px) {
+    flex-direction: column;
+  }
 
   #fehler {
     color: red;
     text-transform: capitalize;
+  }
+  p {
+    text-align: center;
   }
 }

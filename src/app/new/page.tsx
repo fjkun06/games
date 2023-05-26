@@ -1,50 +1,21 @@
 import { Data, getDataByCategory } from "@/functions/getDataByCategory";
-import { useRouter } from "next/navigation";
+import { getData } from "@/functions/getData";
+import { getJackpotData } from "@/functions/getJackpotData";
 
-async function getData() {
-  const data = await fetch("http://stage.whgstage.com/front-end-test/games.php");
-  // The return value is *not* serialized
-  // You can return Date, Map, Set, etc.
-
-  // Recommendation: handle errors
-  if (!data.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    // throw new Error("Failed to fetch data");
-    return null;
-  }
-  return data.json();
-
-  // return res.json();
-}
-async function getJackpotData() {
-  const data = await fetch("https://stage.whgstage.com/front-end-test/jackpots.php");
-  // The return value is *not* serialized
-  if (!data.ok) {
-    // throw new Error("Failed to fetch data");
-    return null;
-  }
-  return data.json();
-
-  // return res.json();
-}
 export default async function Page() {
   const data = await getData();
   const jackpots = await getJackpotData();
-  if (data.length > 0) {
-    return (
-      <section className="games_page">
-        {...getDataByCategory(
-          data.filter((c: Data) => c?.categories?.some((el) => el === "new")),
-          jackpots,
-          "new"
-        )}
-      </section>
-    );
-  } else {
-    return (
-      <section className="games_page">
-        <p>Error while fetching data, please refresh the page.</p>
-      </section>
-    );
-  }
+  return data.length > 0 ? (
+    <section className="games_page">
+      {...getDataByCategory(
+        data.filter((c: Data) => c?.categories?.some((el) => el === "new")),
+        jackpots,
+        "new"
+      )}
+    </section>
+  ) : (
+    <section className="games_page">
+      <p>Error while fetching data, please refresh the page.</p>
+    </section>
+  );
 }

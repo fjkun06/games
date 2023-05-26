@@ -60,7 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               if (!lg) setIsOpen(false);
             }}
           >
-            <Suspense fallback={<p className='game_error'>Loading...</p>}>{children}</Suspense>
+            <Suspense fallback={<p className='game_error'>Loading items...</p>}>{children}</Suspense>
           </main>
         </ErrorBoundary>
         <Footer />
